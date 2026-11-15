@@ -1,0 +1,28 @@
+def vaccum_reflex_agent(location,status):
+    if status=="Dirty":
+        return "suck"
+    elif location=="A":
+        return "Move Right"
+    else:
+        return "Move Left"
+room={
+    "A":input("Enter Staus of Room A(Dirty/Clean):"),
+    "B":input("Enter Status of Room B(Dity/Clean):")
+}
+location=input("Enter Starting Location(A/B):")
+print("Vaccum Cleaner Simulation")
+while True:
+    print("\nCurrent Location:",location)
+    print("Room Status:",room)
+    action=vaccum_reflex_agent(location,room[location])
+    print("Action:",action)
+    if action=="suck":
+        room[location]="Clean"
+    elif action=="Move Right":
+        location="B"
+    elif action=="Move Left":
+        location="A"
+    if room["A"]=="Clean" and room["B"]=="Clean":
+        print("Both Rooms Are clean")
+        print("Agent Stops")
+        break
