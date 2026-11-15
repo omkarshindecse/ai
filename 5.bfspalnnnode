@@ -1,0 +1,37 @@
+# BFS Planning
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+visited = []
+queue = []
+
+start = 'A'
+goal = 'F'
+
+queue.append(start)
+visited.append(start)
+
+print("BFS Planning:")
+
+while queue:
+
+    current = queue.pop(0)
+
+    print("Visiting:", current)
+
+    if current == goal:
+        print("Goal Reached!")
+        break
+
+    for next in graph[current]:
+
+        if next not in visited:
+            visited.append(next)
+            queue.append(next)
